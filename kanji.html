@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+
+<!--
+	Това е демо-шаблон на първото домашно задание по ОКГ.
+	Вижте коментарите във файла, за да разберете къде да променяте.
+	
+	Разделяне/слепване на двете части на йероглифа:
+		клик с ляв бутон или клавиш "интервал"
+		
+	Показване/скриване на рамката:
+		клик с десен бутон или някой друг клавиш
+-->
+	
+<html>
+	<head>
+		<script src="three.min.js"></script>
+		<script src="kanji.js"></script>
+	</head>
+	
+	<body onload="main()">
+		<!-- В тага h1 си напишете факултетния номер, групата в Мудъл и двете си имена-->
+		<h1>ф.н. 81487 &ndash; група 3 &ndash; Кирил Николов</h1>
+
+		<!-- В този script таг напишете кода си за създаване на
+		йероглифа в две половини, разделени с диагонална черта
+		от горе-ляво до долу-дясно. Кодът по-долу е само примерен.
+		Махнете го и сложете вашия код на негово място. -->
+		<script>
+			// Елементите, които принадлежат на горната-дясна половина
+			// на йероглифа ги добавете към обекта PART1, а елементите
+			// на долната-лява половина - в PART2.
+			
+			// Кодът по-надолу създава две стъпаловидни половини на
+			// плочка; целта е да се покаже как да използвате двата
+			// обекта PART1 и PART2 (те са създадени в kanji.js и
+			// пак от там се манипулират, затова не им променяйте
+			// имената).
+			
+			// Създаваме си материал за елементите - добре е да не
+			// е прекалено ярък или тъмен, за да се виждат добре нещата.
+			var material = new THREE.MeshPhongMaterial({color:'gray',shininess:100});
+			
+			var extrudeSettings = { amount: 5, bevelEnabled: false, bevelSegments: 1, steps: 1, bevelSize: 1, bevelThickness: 1, curveSegments: 100};
+			
+			// Дефинираме елементите на горната-дясна половина (с имена по наш избор).
+
+			var shape = new THREE.Shape();
+			shape.moveTo( 3.72, 9.85 );
+			shape.moveTo( 3.7, -3.7 );
+			shape.moveTo( 5.2, -5.2 );
+			shape.moveTo( 5.26, 9.81 );
+			
+			var geometry1 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig1 = new THREE.Mesh( geometry1, material );
+			
+			//
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( 6, -6 );
+			shape.moveTo( 7.66, -5.76 );
+			shape.moveTo( 8.19, -7.21 );
+			shape.moveTo( 7.33, -7.33 );
+			
+			var geometry3 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig2 = new THREE.Mesh( geometry3, material );
+			
+			//
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( 5.20 , -0.69 );
+			shape.moveTo( 8.59, -0.69);
+			shape.moveTo( 8.63, -2.18 );
+			shape.moveTo( 5.20, -2.18 );
+			
+			var geometry4 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig3 = new THREE.Mesh( geometry4, material );
+			
+			// 
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( 8.59, -0.69 );
+			shape.moveTo( 7.09, -0.69);
+			shape.moveTo( 7.09, 5.56 );
+			shape.moveTo( 8.59, 5.56 );
+			
+			var geometry5 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig5 = new THREE.Mesh( geometry5, material );
+			
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			
+			shape.moveTo( 7.09, 5.56 );
+			shape.moveTo( 7.09, 4 );
+			shape.moveTo( 5.24, 4 );
+			shape.moveTo( 5.24, 5.56 );
+			
+			var geometry6 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig6 = new THREE.Mesh( geometry6, material );
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			
+			shape.moveTo( 4, 4);
+			shape.moveTo( 4, 5.4 );
+			shape.moveTo( 0.48, 5.4 );
+			shape.moveTo( 0.48, 4 );
+			
+			var geometry7 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig7 = new THREE.Mesh( geometry7, material );
+			
+			
+			//
+			
+			var shape = new THREE.Shape();
+			
+			shape.moveTo( 0.48, 4 );
+			shape.moveTo( 2, 4 );
+			shape.moveTo( 2, -2 );
+			shape.moveTo( 0.48, -0.49 );
+			
+			var geometry8 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig8 = new THREE.Mesh( geometry8, material );
+			
+		
+			//
+			
+			
+			var shape = new THREE.Shape();
+			
+			shape.moveTo( 2, -2 );
+			shape.moveTo( 2, -0.79 );
+			shape.moveTo( 3.85, -0.79 );
+			shape.moveTo( 3.85, -2.18 );
+			shape.moveTo( 2.18, -2.18 );
+			
+			var geometry9 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig9 = new THREE.Mesh( geometry9, material );
+		
+		
+			//
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( 6.47, -3.8 );
+			shape.bezierCurveTo( 6.47, -3.8, 8, -6, 8.21, -8.21 );
+			shape.moveTo( 8.85, -8.85 );
+			shape.moveTo( 9.78, -8.38 );
+			shape.bezierCurveTo( 9.78, -8.38 , 9.6, -5.4, 7.85, -3.29 );
+			var geometry10 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig10 = new THREE.Mesh( geometry10, material );
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			
+			shape.moveTo( -0.48, 0.48 );
+			shape.moveTo( -0.48, 4.3);
+			shape.moveTo( -2.33, 4.3 );
+			shape.moveTo( -1.5, 6.16 );
+			shape.moveTo( -1.5, 7.53 );
+			shape.moveTo( -5, 7.53 );
+			shape.moveTo( -5.5, 6.16 );
+			shape.moveTo( -3.18, 6.16 );
+			shape.moveTo( -4.09, 4.3);
+			shape.moveTo( -4.15, 4.3 );
+			shape.moveTo( -2.8, 2.8 );
+			shape.moveTo( -2, 2.8);
+			shape.moveTo( -2, 2);
+			
+			var geometry11 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig11 = new THREE.Mesh( geometry11, material );
+			
+			
+			
+			//
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -6.79, 6.79 );
+			shape.moveTo( -5.87, 9.59 );
+			shape.moveTo( -4.44, 9.07 );
+			shape.bezierCurveTo( -4.44, 9.07 , -4.85, 6.9, -5.65, 5.65 );
+			var geometry12 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig12 = new THREE.Mesh( geometry12, material );
+			
+			
+		
+			// Добавяме ги към обекта PART1 (името е фиксирано).
+			part1.add(fig1, fig2, fig3, fig5, fig6, fig7, 
+						fig8, fig9, fig10, fig11, fig12);
+			
+			// Дефинираме елементите на долната-лява половина (с имена по наш избор).
+
+			var shape = new THREE.Shape();
+			shape.moveTo( 0, -7);
+			shape.moveTo( 6, -6);
+			shape.moveTo( 7.33, -7.33);
+			shape.moveTo( 0.7, -8.7 );
+			var geometry2 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var elem1 = new THREE.Mesh( geometry2, material );
+
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( 8.2, -8.2);
+			shape.moveTo( 8.85, -8.85);
+			shape.moveTo( 8.2, -9.1);
+			var geometry13 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var fig13 = new THREE.Mesh( geometry13, material );
+			
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( 3.7, -3.7);
+			shape.moveTo( 5.2, -5.2);
+			shape.moveTo( 5.2, -6.4);
+			shape.moveTo( 3.7, -6.57);
+			var geometry14 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var fig14 = new THREE.Mesh( geometry14, material );
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( 0.48, -0.48);
+			shape.moveTo( 2.3, -2.18);
+			shape.moveTo( 0.5, -2.18);
+			var geometry15 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var fig15 = new THREE.Mesh( geometry15, material );
+			
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -2, -6.85);
+			shape.moveTo( -0.48, -6.85);
+			shape.moveTo( -0.48, 0.48);
+			shape.moveTo( -2, 2);
+			var geometry16 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var fig16 = new THREE.Mesh( geometry16, material );
+			
+			
+			
+			//
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -1.8, 1.2);
+			shape.moveTo( -6.5, 1.2);
+			shape.moveTo( -6.5, -0.3);
+			shape.moveTo( -1.8, -0.3);
+			var geometry17 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var fig17 = new THREE.Mesh( geometry17, material );
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -3.44, 1);
+			shape.moveTo( -3.44, 2.8);
+			shape.moveTo( -2.8, 2.8);
+			shape.moveTo( -4.15, 4.3 );
+			shape.moveTo( -6.6, 4.4);
+			shape.moveTo( -6.6, 2.8);
+			shape.moveTo( -5, 2.8);
+			shape.moveTo( -5, 1);
+			var geometry18 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var fig18 = new THREE.Mesh( geometry18, material );
+			
+			
+			//
+			
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -1.77, -3.41);
+			shape.moveTo( -1.77, -2);
+			shape.moveTo( -3.4, -2);
+			shape.moveTo( -3.4, -0.3 );
+			shape.moveTo( -4.82, -0.26);
+			shape.moveTo( -4.82, -2);
+			shape.moveTo( -6.3, -2);
+			shape.moveTo( -6.3, -3.41);
+			var geometry19 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var fig19 = new THREE.Mesh( geometry19, material );
+			
+			
+			
+			//
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -7.88, -3.41);
+			shape.moveTo( -6.3, -3.41);
+			shape.moveTo( -6.3, 4.39);
+			shape.moveTo( -7.88, 4.44 );
+			var geometry20 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var fig20 = new THREE.Mesh( geometry20, material );
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -7.88, -3.41);
+			shape.bezierCurveTo( -7.88, -3.41 , -8, -7, -9, -9 );
+			shape.moveTo( -7.8, -9.7);
+			shape.bezierCurveTo( -7.8, -9.7 , -6.6, -7.6, -6.3, -3.41 );
+			var geometry23 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			
+			var fig23 = new THREE.Mesh( geometry23, material );
+			
+			
+			
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -9.81, 2.54);
+			shape.bezierCurveTo( -9.81, 2.54 , -8, 4, -6.79, 6.79 );
+			shape.moveTo( -5.65, 5.65);
+			shape.bezierCurveTo( -5.65, 5.65 , -6.8, 3.5, -8.7, 1.33 );
+			var geometry21 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig21 = new THREE.Mesh( geometry21, material );
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -9.5, -8.33);
+			shape.bezierCurveTo( -9.5, -8.33, -7.7, -6.6, -7.88, -3.41 );
+			shape.moveTo( -6.31, -3.41);
+			shape.bezierCurveTo( -6.31, -3.41 , -6, -7.35, -8.21, -9.3);
+			var geometry22 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig22 = new THREE.Mesh( geometry22, material );
+			
+			
+			//
+			
+			
+			var shape = new THREE.Shape();
+			shape.moveTo( -4.24, -7.44);
+			shape.moveTo( -2.28, -7.34);
+			shape.bezierCurveTo( -2.28, -7.34, -2, -7.28, -2, -6.85 );
+			shape.moveTo( -0.48, -6.85);
+			shape.moveTo( -0.48, -7.76);
+			shape.bezierCurveTo( -0.48, -7.75 , -0.4, -8, -0.76, -8.38);
+			shape.bezierCurveTo( -0.76, -8.38 , -1.5, -9, -2.62, -9);
+			shape.moveTo( -3.8, -9);
+			
+			var geometry22 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			var fig22 = new THREE.Mesh( geometry22, material );
+			
+			
+			
+			
+			// Добавяме ги към обекта PART2 (името е фиксирано).
+			part2.add(elem1, fig13, fig14, fig15, fig16, fig17,
+			fig18, fig19, fig20, fig21, fig22, fig23);
+
+			// Файлът kanji.js се грижи да нарисува земята и двете половини
+			// на йероглифа; грижи се и раздалечаването и приближаването на
+			// тези половини; показване/скриване на рамката; звукови ефекти
+			// и потрепване. Това е само за ваша информация, ако евентуално
+			// се чудете къде се прави магията. Това май е най-подравненият
+			// коментар досега -- както отляво, така и отдясно е подравнен.
+		</script>
+	</body>
+</html>
